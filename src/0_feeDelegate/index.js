@@ -1,15 +1,12 @@
-// import Caver from "caver-js";
 import { caver, TECH_TOKEN_ABI, TECH_TOKEN_ADDRESS } from "../constants.js";
-
-// const caver = new Caver(EN_NODE);
 
 const mintToken = async (to, amount) => {
   // generate keyring instance
   const caller = caver.wallet.keyring.generate();
-  caver.wallet.add(caller);
+  // caver.wallet.add(caller);
   // write fee payer's private key
-  const feePayer = caver.wallet.newKeyring("0x{private key}");
-  caver.wallet.add(feePayer);
+  const feePayer = caver.wallet.newKeyring("opt: 0xAddress", "0x{private key}");
+  // caver.wallet.add(feePayer);
 
   const techTokenInstance = caver.contract.create(
     TECH_TOKEN_ABI,

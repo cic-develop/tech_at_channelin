@@ -1,15 +1,15 @@
 import ethers from "ethers";
 import { Wallet, TxType, AccountKeyType } from "@klaytn/ethers-ext";
-import { TECH_TOKEN_ABI, TECH_TOKEN_ADDRESS, PROVIDER } from "../constants.js";
+import { TECH_TOKEN_ABI, TECH_TOKEN_ADDRESS, provider } from "../constants.js";
 
 const originFeePayer = "0xPrivate key";
 const delegateFeePayer = "0xPrivate key";
 
-const originWallet = new Wallet(originFeePayer, PROVIDER);
+const originWallet = new Wallet(originFeePayer, provider);
 const delegateFeeWallet = new Wallet(
   originWallet.address,
   delegateFeePayer,
-  PROVIDER
+  provider
 );
 
 const grantRoleUpdate = async () => {
@@ -39,15 +39,15 @@ const grantRoleUpdate = async () => {
 };
 
 const sentTx = async (to, amount) => {
-  const createWallet = await new ethers.Wallet.createRandom().connect(PROVIDER);
+  const createWallet = await new ethers.Wallet.createRandom().connect(provider);
 
   // ethers/klaytn extension wallet instance
-  const caller = new Wallet(createWallet.privateKey, PROVIDER);
+  const caller = new Wallet(createWallet.privateKey, provider);
 
   const techTokenInstance = new ethers.Contract(
     TECH_TOKEN_ADDRESS,
     TECH_TOKEN_ABI,
-    PROVIDER
+    provider
   );
 
   const param = techTokenInstance.interface.encodeFunctionData("mint", [
@@ -73,6 +73,7 @@ const sentTx = async (to, amount) => {
   tx = delegateFeeWallet.decodeTxFromRLP(senderTxHashRLP);
   console.log("tx", tx);
 
+  // backend sign
   const sentTx = await delegateFeeWallet.sendTransactionAsFeePayer(tx);
   console.log("sentTx", sentTx);
 

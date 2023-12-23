@@ -1,6 +1,5 @@
 import Caver from "caver-js";
 import ethers from "ethers";
-import * as ext from "@klaytn/ethers-ext";
 export const EN_NODE = "https://public-en-baobab.klaytn.net";
 export const caver = new Caver(EN_NODE);
 export const TECH_TOKEN_ADDRESS = "0xb172e3f8bddab0f185f7809a630837da5df38a25";
@@ -390,4 +389,4 @@ export const TECH_TOKEN_ABI = [
   },
 ];
 
-export const PROVIDER = new ethers.providers.JsonRpcProvider(EN_NODE);
+export const provider = new ethers.providers.JsonRpcProvider(EN_NODE);
