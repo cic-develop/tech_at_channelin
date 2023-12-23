@@ -11,7 +11,7 @@ const mintToken = async (to, amount) => {
   // ethers/klaytn extension wallet instance
   const caller = new Wallet(createWallet.privateKey, provider);
   // ethers/klaytn extension wallet instance
-  const feePayer = new Wallet("0x{private key}", provider);
+  const feePayer = new Wallet("0xPrivate key", provider);
 
   const techTokenInstance = new ethers.Contract(
     TECH_TOKEN_ADDRESS,
@@ -30,6 +30,7 @@ const mintToken = async (to, amount) => {
     to: TECH_TOKEN_ADDRESS,
     value: 0,
     input: param,
+    gasLimit: 100000,
   };
 
   tx = await caller.populateTransaction(tx);
@@ -44,4 +45,4 @@ const mintToken = async (to, amount) => {
 //
 //
 // input your address and amount
-mintToken("0x Address ", "mint amount");
+mintToken("0xYour address", "write amount");

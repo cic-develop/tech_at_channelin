@@ -11,6 +11,8 @@
   "author": " <team.gutalik@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "caver-js": "1.11.0"
+    "@klaytn/ethers-ext": "0.9.8-beta",
+    "caver-js": "1.11.0",
+    "ethers": "5.7.2"
   }
 }
