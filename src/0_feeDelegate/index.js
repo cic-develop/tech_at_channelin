@@ -4,6 +4,7 @@ const mintToken = async (to, amount) => {
   // generate keyring instance
   const caller = caver.wallet.keyring.generate();
   // caver.wallet.add(caller);
+
   // write fee payer's private key
   const feePayer = caver.wallet.newKeyring("opt: 0xAddress", "0x{private key}");
   // caver.wallet.add(feePayer);
@@ -27,7 +28,6 @@ const mintToken = async (to, amount) => {
   );
   console.log(receipt);
 };
-
 //
 //
 // input your address and amount
