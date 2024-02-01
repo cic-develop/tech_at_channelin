@@ -1,0 +1,17 @@
+syntax = "proto3";
+package channelin.channelin;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "channelin/channelin/params.proto";
+
+option go_package = "channelin/x/channelin/types";
+
+// GenesisState defines the channelin module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
