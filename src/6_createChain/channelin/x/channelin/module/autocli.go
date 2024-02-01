@@ -17,6 +17,27 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod:      "SayHello",
+					Use:            "say-hello [name]",
+					Short:          "Query say-hello",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}},
+				},
+
+				{
+					RpcMethod:      "Math",
+					Use:            "math [name]",
+					Short:          "Query math",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}},
+				},
+
+				{
+					RpcMethod:      "Plus",
+					Use:            "plus [number]",
+					Short:          "Query plus",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "number"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

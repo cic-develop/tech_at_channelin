@@ -1,0 +1,192 @@
+swagger: '2.0'
+info:
+  title: HTTP API Console channelin.channelin
+  name: ''
+  description: ''
+paths:
+  /channelin/channelin/math/{name}:
+    get:
+      operationId: Query_Math
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              number:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+  /channelin/channelin/params:
+    get:
+      operationId: Query_Params
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              params:
+                type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+        - Query
+  /channelin/channelin/plus/{number}:
+    get:
+      operationId: Query_Plus
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              number:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: number
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+  /channelin/channelin/say_hello/{name}:
+    get:
+      operationId: Query_SayHello
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+definitions:
+  Any:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  Status:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          properties:
+            '@type':
+              type: string
+          additionalProperties: {}
+  Params:
+    type: object
+  QueryMathResponse:
+    type: object
+    properties:
+      number:
+        type: string
+  QueryParamsResponse:
+    type: object
+    properties:
+      params:
+        type: object
+  QueryPlusResponse:
+    type: object
+    properties:
+      number:
+        type: string
+  QuerySayHelloResponse:
+    type: object
+    properties:
+      name:
+        type: string
+  MsgUpdateParamsResponse:
+    type: object

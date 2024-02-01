@@ -4,6 +4,43 @@ info:
   name: ''
   description: ''
 paths:
+  /channelin/channelin/math/{name}:
+    get:
+      summary: Queries a list of Math items.
+      operationId: ChannelinChannelinQuery_Math
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              number:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
   /channelin/channelin/params:
     get:
       summary: Parameters queries the parameters of the module.
@@ -38,6 +75,80 @@ paths:
                     '@type':
                       type: string
                   additionalProperties: {}
+      tags:
+        - Query
+  /channelin/channelin/plus/{number}:
+    get:
+      summary: Queries a list of Plus items.
+      operationId: ChannelinChannelinQuery_Plus
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              number:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: number
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+  /channelin/channelin/say_hello/{name}:
+    get:
+      summary: Queries a list of SayHello items.
+      operationId: ChannelinChannelinQuery_SayHello
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
       tags:
         - Query
   /channelin.channelin.Msg/UpdateParams:
@@ -19636,6 +19747,11 @@ definitions:
   channelin.channelin.Params:
     type: object
     description: Params defines the parameters for the module.
+  channelin.channelin.QueryMathResponse:
+    type: object
+    properties:
+      number:
+        type: string
   channelin.channelin.QueryParamsResponse:
     type: object
     properties:
@@ -19643,6 +19759,16 @@ definitions:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
+  channelin.channelin.QueryPlusResponse:
+    type: object
+    properties:
+      number:
+        type: string
+  channelin.channelin.QuerySayHelloResponse:
+    type: object
+    properties:
+      name:
+        type: string
   channelin.channelin.MsgUpdateParams:
     type: object
     properties:
