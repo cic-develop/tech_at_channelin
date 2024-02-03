@@ -1,0 +1,15 @@
+syntax = "proto3";
+package chin.chin;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "chin/x/chin/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "chin/x/chin/Params";
+  option (gogoproto.equal) = true;
+
+  
+}
